@@ -22,7 +22,7 @@ public class Conexao{
     private void carregarConfiguracoes() {
 
         Properties prop = new Properties();
-        try (InputStream inputPropsConfig = getClass().getClassLoader().getResourceAsStream("config.properties")) {
+        try (InputStream inputPropsConfig = getClass().getClassLoader().getResourceAsStream("conf.properties")) {
             prop.load(inputPropsConfig);
             driver = prop.getProperty("driver");
             url = prop.getProperty("url");
