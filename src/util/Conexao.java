@@ -7,7 +7,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
-public class Conexao {
+public class Conexao{
 
     private String driver;
     private String url;
