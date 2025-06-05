@@ -1,6 +1,6 @@
 package util;
 
-import dao.UsuariosDAO;
+import dao.*;
 
 import java.sql.Connection;
 
@@ -14,8 +14,14 @@ public class TesteConexaoDB {
             System.out.println("conexao com sucesso");
 
             try {
-                UsuariosDAO userDAO = new UsuariosDAO();
-                userDAO.inserirUsuario();
+                AdicionaisDAO AddDAO = new AdicionaisDAO();
+                QuartosDAO quDAO = new QuartosDAO();
+                CargosDAO caDAO = new CargosDAO();
+                ClientesDAO cliDAO = new ClientesDAO();
+                UsuariosDAO usuDAO = new UsuariosDAO();
+                PedidosDAO pedDAO = new PedidosDAO();
+
+                pedDAO.inserirPedido();
                 System.out.println("Usuario Inserido com sucesso");
                 condb.close();
                 System.out.println("conexao encerrada");

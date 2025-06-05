@@ -16,7 +16,7 @@ public class UsuariosDAO {
             novoUsuario.setString(1, "ggg");
             novoUsuario.setString(2, "123");
             novoUsuario.setString(3, "fgaa@fdsdfs.kas");
-            novoUsuario.setInt(4, 1);
+            novoUsuario.setInt(4, 4);
 
             int linhaAfetada = novoUsuario.executeUpdate();
 
