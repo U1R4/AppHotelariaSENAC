@@ -32,5 +32,39 @@ public class ClientesDAO {
             return false;
         }
     }
+
+    public boolean deletarCliente(int id) {
+        try {
+            Connection conndb = conexao.conectar();
+            PreparedStatement removeCliente = conndb.prepareStatement("DELETE FROM clientes WHERE id = ?;");
+            removeCliente.setInt(1, id);
+            int linhaAfetada = removeCliente.executeUpdate();
+            conndb.close();
+            return linhaAfetada > 0;
+        } catch (Exception erro) {
+            System.out.println("Erro ao deletar cliente: " + erro);
+            return false;
+        }
+    }
+
+    public boolean alterarCliente(String nome, String email, String telefone, String cpf, int id) {
+        try {
+            Connection conndb = conexao.conectar();
+            PreparedStatement alterarCliente = conndb.prepareStatement(
+                    "UPDATE clientes SET nome = ?, email = ?, telefone = ?, cpf = ? WHERE id = ?;"
+            );
+            alterarCliente.setString(1, nome);
+            alterarCliente.setString(2, email);
+            alterarCliente.setString(3, telefone);
+            alterarCliente.setString(4, cpf);
+            alterarCliente.setInt(5, id);
+            int linhaAfetada = alterarCliente.executeUpdate();
+            conndb.close();
+            return linhaAfetada > 0;
+        } catch (Exception erro) {
+            System.out.println("Erro ao atualizar cliente: " + erro);
+            return false;
+        }
+    }
 }
 

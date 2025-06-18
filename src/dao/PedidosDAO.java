@@ -31,4 +31,38 @@ public class PedidosDAO {
             return false;
         }
     }
+
+
+    public boolean deletarPedido(int id) {
+        try {
+            Connection conndb = conexao.conectar();
+            PreparedStatement removePedido = conndb.prepareStatement("DELETE FROM pedidos WHERE id = ?;");
+            removePedido.setInt(1, id);
+            int linhaAfetada = removePedido.executeUpdate();
+            conndb.close();
+            return linhaAfetada > 0;
+        } catch (Exception erro) {
+            System.out.println("Erro ao deletar pedido: " + erro);
+            return false;
+        }
+    }
+
+    public boolean alterarPedido(int usuarioId, int clienteId, String pagamento, int id) {
+        try {
+            Connection conndb = conexao.conectar();
+            PreparedStatement alterarPedido = conndb.prepareStatement(
+                    "UPDATE pedidos SET usuario_id = ?, cliente_id = ?, pagamento = ? WHERE id = ?;"
+            );
+            alterarPedido.setInt(1, usuarioId);
+            alterarPedido.setInt(2, clienteId);
+            alterarPedido.setString(3, pagamento);
+            alterarPedido.setInt(4, id);
+            int linhaAfetada = alterarPedido.executeUpdate();
+            conndb.close();
+            return linhaAfetada > 0;
+        } catch (Exception erro) {
+            System.out.println("Erro ao atualizar pedido: " + erro);
+            return false;
+        }
+    }
 }
