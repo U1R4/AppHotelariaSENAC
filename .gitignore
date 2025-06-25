@@ -3,7 +3,7 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 .idea/
-src/view/resources/conf.properties
+/src/view/resources/conf.properties
 
 ### Eclipse ###
 .apt_generated

@@ -21,7 +21,6 @@ public class TesteConexaoDB {
                 UsuariosDAO usuDAO = new UsuariosDAO();
                 PedidosDAO pedDAO = new PedidosDAO();
 
-                pedDAO.inserirPedido();
                 System.out.println("Usuario Inserido com sucesso");
                 condb.close();
                 System.out.println("conexao encerrada");
