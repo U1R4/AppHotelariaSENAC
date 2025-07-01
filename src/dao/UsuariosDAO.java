@@ -70,7 +70,7 @@ public class UsuariosDAO {
         return false;
     }
 
-    public void autenticarUsuario(Usuarios usuario) {
+    public boolean autenticarUsuario(Usuarios usuario) {
         try {
             Connection conndb = conexao.conectar();
             PreparedStatement autenticarUsuario = conndb.prepareStatement(
@@ -88,5 +88,6 @@ public class UsuariosDAO {
         } catch (Exception erro) {
             System.out.println("Erro ao pesquisar usuario: " + erro);
         }
+        return true;
     }
 }
